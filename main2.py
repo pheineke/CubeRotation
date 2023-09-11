@@ -79,10 +79,10 @@ def draw(angle):
         y = center[1] + b * math.sin(angle + angles[i])
         
         # Aktualisierung der Positionen
-        rect[i][0] = x
-        rect[i][1] = y
-        recttemp[i][0] = x
-        recttemp[i][1] = y
+        rect[i][0] = int(x)
+        rect[i][1] = int(y)
+        recttemp[i][0] = int(x)
+        recttemp[i][1] = int(y)
 
     for i in range(4):
     # Berechnung der x- und y-Koordinaten
@@ -90,10 +90,10 @@ def draw(angle):
         y = center[1] + b * math.sin(angle + angles[i]) - 100
         
         # Aktualisierung der Positionen
-        rect1[i][0] = x
-        rect1[i][1] = y
-        recttemp1[i][0] = x
-        recttemp1[i][1] = y
+        rect1[i][0] = int(x)
+        rect1[i][1] = int(y)
+        recttemp1[i][0] = int(x)
+        recttemp1[i][1] = int(y)
 
 
     #Draw New Rectangle:
@@ -121,8 +121,10 @@ def draw(angle):
 
     for i in range(0,4):
         for j in range(0,4):
-                pygame.draw.line(window, color0, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 1)
-                pygame.draw.line(window, color1, (rect[(i+1)%5][0], rect[(i+1)%5][1]), (rect[(j+1)%5][0], rect[(j+1)%5][1]), 1)
+                pygame.draw.line(window, color0, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 2)
+                pygame.draw.line(window, color0, (rect1[i][0], rect1[i][1]), (rect1[j][0], rect1[j][1]), 2)
+                
+                #pygame.draw.line(window, color1, (rect[(i+1)%5][0], rect[(i+1)%5][1]), (rect[(j+1)%5][0], rect[(j+1)%5][1]), 1)
 
 
 
