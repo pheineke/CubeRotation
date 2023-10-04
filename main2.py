@@ -120,6 +120,16 @@ def draw(angle):
     for i in range(0,4):
         pygame.draw.rect(window, color, ((rect1[i][0], rect1[i][1]), pointsizetup))
 
+    '''
+    for i in range(0,4):
+        for j in range(0,4):
+                pygame.draw.line(window, color0, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 2)
+                pygame.draw.line(window, color0, (rect1[i][0], rect1[i][1]), (rect1[j][0], rect1[j][1]), 2)
+                
+                #pygame.draw.line(window, color1, (rect[(i+1)%5][0], rect[(i+1)%5][1]), (rect[(j+1)%5][0], rect[(j+1)%5][1]), 1)
+    '''
+
+
 
     ####
 
