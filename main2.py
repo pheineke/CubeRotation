@@ -38,43 +38,26 @@ rect = [[0, 0] for i in range(4)]
 rect1 = [[0, 0] for i in range(4)]
 
 def draw(angle):
+
+    pygame.display.update()
     
-
-
     angles = [angle_step * i for i in range(4)]
+    #>
 
     #Erase old rectangle:
-
-    '''
-    pygame.draw.rect(window, background, ((recttemp[0][0], recttemp[0][1]), pointsizetup))
-    pygame.draw.rect(window, background, ((recttemp[1][0], recttemp[1][1]), pointsizetup))
-    pygame.draw.rect(window, background, ((recttemp[2][0], recttemp[2][1]), pointsizetup))
-    pygame.draw.rect(window, background, ((recttemp[3][0], recttemp[3][1]), pointsizetup))
-    '''
     #>
     for i in range(0,4):
         pygame.draw.rect(window, backgroundcolor, ((recttemp[i][0], recttemp[i][1]), pointsizetup))
-
+    #>
     for i in range(0,4):
         pygame.draw.rect(window, backgroundcolor, ((recttemp1[i][0], recttemp1[i][1]), pointsizetup))
-
-    
+    #>
     for i in range(0,4):
         for j in range(0,4):
             pygame.draw.line(window, backgroundcolor, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 1)
 
-    '''
-    pygame.draw.rect(window, background, ((recttemp1[0][0], recttemp1[0][1]), pointsizetup))
-    pygame.draw.rect(window, background, ((recttemp1[1][0], recttemp1[1][1]), pointsizetup))
-    pygame.draw.rect(window, background, ((recttemp1[2][0], recttemp1[2][1]), pointsizetup))
-    pygame.draw.rect(window, background, ((recttemp1[3][0], recttemp1[3][1]), pointsizetup))
-    '''
-    #>
-    
+
     ####
-
-    
-
     for i in range(4):
     # Berechnung der x- und y-Koordinaten
         x = center[0] + a * math.cos(angle + angles[i]) 
@@ -98,24 +81,11 @@ def draw(angle):
         recttemp1[i][1] = int(y)
 
 
-    #Draw New Rectangle:
 
-    '''
-    pygame.draw.rect(window, color, ((rect[0][0], rect[0][1]), pointsizetup))
-    pygame.draw.rect(window, color, ((rect[1][0], rect[1][1]), pointsizetup))
-    pygame.draw.rect(window, color, ((rect[2][0], rect[2][1]), pointsizetup))
-    pygame.draw.rect(window, color, ((rect[3][0], rect[3][1]), pointsizetup))
-    '''
+    #Draw New Rectangle:
     #>
     for i in range(0,4):
         pygame.draw.rect(window, color, ((rect[i][0], rect[i][1]), pointsizetup))
-
-    '''
-    pygame.draw.rect(window, color, ((rect1[0][0], rect1[0][1]), pointsizetup))
-    pygame.draw.rect(window, color, ((rect1[1][0], rect1[1][1]), pointsizetup))
-    pygame.draw.rect(window, color, ((rect1[2][0], rect1[2][1]), pointsizetup))
-    pygame.draw.rect(window, color, ((rect1[3][0], rect1[3][1]), pointsizetup))
-    '''
     #>
     for i in range(0,4):
         pygame.draw.rect(window, color, ((rect1[i][0], rect1[i][1]), pointsizetup))
@@ -151,12 +121,11 @@ center = (window_size[0] // 2, window_size[1] // 2)
 
 running = True
 while running:
-    x = pygame.event.get()
-    for event in x:
-        if event.type == pygame.QUIT:
-            running = False
+    
 
     while loopvar < 10000:
+        pygame.event.get()
+        
         draw(angle)
         
         # Update the angle
