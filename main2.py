@@ -6,7 +6,14 @@ from pygame import gfxdraw
 import random
 import time
 
-background = (255,255,255)
+backgroundcolor = (255,255,255)
+color = (255,0,0)
+color0 = (255, 0, 0)    # Rot
+color1 = (0, 255, 0)    # Grün
+color2 = (0, 0, 255)    # Blau
+color3 = (255, 255, 0)  # Gelb
+color4 = (255, 0, 255)  # Magenta
+color5 = (0, 255, 255)  # Cyan
 
 loopvar = 0
 
@@ -31,13 +38,7 @@ rect = [[0, 0] for i in range(4)]
 rect1 = [[0, 0] for i in range(4)]
 
 def draw(angle):
-    color = (255,0,0)
-    color0 = (255, 0, 0)    # Rot
-    color1 = (0, 255, 0)    # Grün
-    color2 = (0, 0, 255)    # Blau
-    color3 = (255, 255, 0)  # Gelb
-    color4 = (255, 0, 255)  # Magenta
-    color5 = (0, 255, 255)  # Cyan
+    
 
 
     angles = [angle_step * i for i in range(4)]
@@ -52,7 +53,15 @@ def draw(angle):
     '''
     #>
     for i in range(0,4):
-        pygame.draw.rect(window, background, ((recttemp[i][0], recttemp[i][1]), pointsizetup))
+        pygame.draw.rect(window, backgroundcolor, ((recttemp[i][0], recttemp[i][1]), pointsizetup))
+
+    for i in range(0,4):
+        pygame.draw.rect(window, backgroundcolor, ((recttemp1[i][0], recttemp1[i][1]), pointsizetup))
+
+    
+    for i in range(0,4):
+        for j in range(0,4):
+            pygame.draw.line(window, backgroundcolor, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 1)
 
     '''
     pygame.draw.rect(window, background, ((recttemp1[0][0], recttemp1[0][1]), pointsizetup))
@@ -61,14 +70,7 @@ def draw(angle):
     pygame.draw.rect(window, background, ((recttemp1[3][0], recttemp1[3][1]), pointsizetup))
     '''
     #>
-    for i in range(0,4):
-        pygame.draw.rect(window, background, ((recttemp1[i][0], recttemp1[i][1]), pointsizetup))
-
     
-    for i in range(0,4):
-        for j in range(0,4):
-            pygame.draw.line(window, background, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 1)
-
     ####
 
     
@@ -119,16 +121,6 @@ def draw(angle):
         pygame.draw.rect(window, color, ((rect1[i][0], rect1[i][1]), pointsizetup))
 
 
-    for i in range(0,4):
-        for j in range(0,4):
-                pygame.draw.line(window, color0, (rect[i][0], rect[i][1]), (rect[j][0], rect[j][1]), 2)
-                pygame.draw.line(window, color0, (rect1[i][0], rect1[i][1]), (rect1[j][0], rect1[j][1]), 2)
-                
-                #pygame.draw.line(window, color1, (rect[(i+1)%5][0], rect[(i+1)%5][1]), (rect[(j+1)%5][0], rect[(j+1)%5][1]), 1)
-
-
-
-
     ####
 
     pygame.display.update()
@@ -140,7 +132,7 @@ pygame.init()
 window_size = (800, 600)
 window = pygame.display.set_mode(window_size)
 pygame.display.set_caption("main")
-window.fill(background)
+window.fill(backgroundcolor)
 pygame.display.update()
 
 # Set up the center of rotation and the radius

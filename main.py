@@ -44,7 +44,7 @@ while running:
         x=+1
 
         angle=+10
-        time.sleep(0.00000001)
+        time.sleep(0.01)
         pygame.display.update()
 
 
